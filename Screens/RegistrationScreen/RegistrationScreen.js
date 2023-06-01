@@ -21,11 +21,6 @@ function RegistrationScreen() {
 
   return (
     <View style={stylesReg.container}>
-      {/* <ImageBackground
-        source={require("../../images/photo-bg.jpg")}
-        resizeMode="cover"
-        imageStyle={stylesReg.image}
-      > */}
       <View style={stylesReg.scrollView}>
         <Text style={stylesReg.text}>Реєстрація</Text>
         <View style={stylesReg.imagePlaceholder}>
@@ -91,7 +86,6 @@ function RegistrationScreen() {
         </TouchableOpacity>
         <Text style={stylesReg.link}>Вже є акаунт? Увійти</Text>
       </View>
-      {/* </ImageBackground> */}
     </View>
   );
 }

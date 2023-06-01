@@ -6,14 +6,6 @@ export const styles = StyleSheet.create({
     boxSizing: "border - box",
     fontFamily: "Roboto",
     width: "100%",
-    ...Platform.select({
-      ios: {
-        backgroundColor: "#000000",
-      },
-      android: {
-        backgroundColor: "##fff",
-      },
-    }),
   },
   image: {
     flex: 1,

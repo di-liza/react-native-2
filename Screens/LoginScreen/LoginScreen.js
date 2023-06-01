@@ -20,11 +20,6 @@ function LoginScreen() {
 
   return (
     <View style={stylesLog.container}>
-      {/* <ImageBackground
-        source={require("../../images/photo-bg.jpg")}
-        resizeMode="cover"
-        imageStyle={stylesLog.image}
-      > */}
       <View style={stylesLog.scrollView}>
         <Text style={stylesLog.text}>Увійти</Text>
         <View style={stylesLog.inputsList}>
@@ -67,7 +62,6 @@ function LoginScreen() {
         </TouchableOpacity>
         <Text style={stylesLog.link}>Немає акаунту? Зареєструватися</Text>
       </View>
-      {/* </ImageBackground> */}
     </View>
   );
 }
