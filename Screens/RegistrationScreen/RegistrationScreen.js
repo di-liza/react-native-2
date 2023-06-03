@@ -5,11 +5,8 @@ import {
   Text,
   View,
   Image,
-  ImageBackground,
   TouchableOpacity,
   TextInput,
-  ScrollView,
-  Button,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
@@ -29,7 +26,7 @@ function RegistrationScreen() {
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
   const [state, setState] = useState(initialState);
-  // const [inputValue, setInputValue] = useState("");
+
   const keyboardHide = () => {
     setIsShowKeyboard(false);
     Keyboard.dismiss();

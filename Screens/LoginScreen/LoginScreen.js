@@ -4,8 +4,6 @@ import { useState } from "react";
 import {
   Text,
   View,
-  Image,
-  ImageBackground,
   TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
