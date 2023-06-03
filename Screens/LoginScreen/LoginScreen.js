@@ -29,7 +29,7 @@ function LoginScreen() {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
   };
-  const resetForm = () => {
+  const onLogin = () => {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
     console.log(state);
@@ -52,7 +52,7 @@ function LoginScreen() {
               <View>
                 <TextInput
                   cursorColor={"#FF6C00"}
-                  onFocus={() => setIsShowKeyboard(true)}
+                  onFocus={() => setIsEmailFocused(true)}
                   onBlur={() => setIsEmailFocused(false)}
                   placeholder={"Адреса електронної пошти"}
                   placeholderTextColor={"#BDBDBD"}
@@ -72,7 +72,7 @@ function LoginScreen() {
               <View>
                 <TextInput
                   cursorColor={"#FF6C00"}
-                  onFocus={() => setIsShowKeyboard(true)}
+                  onFocus={() => setIsPasswordFocused(true)}
                   onBlur={() => setIsPasswordFocused(false)}
                   placeholder={"Пароль"}
                   placeholderTextColor={"#BDBDBD"}
@@ -84,16 +84,16 @@ function LoginScreen() {
                     },
                   ]}
                   onChangeText={(value) =>
-                    setstate((prevState) => ({ ...prevState, email: value }))
+                    setstate((prevState) => ({ ...prevState, password: value }))
                   }
-                  value={state.email}
+                  value={state.password}
                 />
               </View>
             </View>
             <Text style={stylesLog.showPassLink}>Показати</Text>
             <TouchableOpacity>
               {!isShowKeyboard && (
-                <Text style={stylesLog.button} onPress={resetForm}>
+                <Text style={stylesLog.button} onPress={onLogin}>
                   Увійти
                 </Text>
               )}
