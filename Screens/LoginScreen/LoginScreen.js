@@ -42,7 +42,7 @@ function LoginScreen() {
           <View
             style={{
               ...stylesLog.scrollView,
-              // height: isShowKeyboard ? 247 : 489,
+              paddingBottom: isShowKeyboard ? 32 : 111,
             }}
           >
             <Text style={stylesLog.text}>Увійти</Text>
@@ -79,6 +79,7 @@ function LoginScreen() {
                     {
                       borderColor: isPasswordFocused ? "#FF6C00" : "#E8E8E8",
                       backgroundColor: isPasswordFocused ? "#fff" : "#F6F6F6",
+                      marginBottom: 0,
                     },
                   ]}
                   onChangeText={(value) =>
