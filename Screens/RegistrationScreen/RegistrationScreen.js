@@ -46,7 +46,7 @@ function RegistrationScreen() {
           <View
             style={{
               ...stylesReg.scrollView,
-              paddingBottom: isShowKeyboard ? 45 : 323,
+              paddingBottom: isShowKeyboard ? 45 : 111,
             }}
           >
             <Text style={stylesReg.text}>Реєстрація</Text>
@@ -112,7 +112,7 @@ function RegistrationScreen() {
                     {
                       borderColor: isPasswordFocused ? "#FF6C00" : "#E8E8E8",
                       backgroundColor: isPasswordFocused ? "#fff" : "#F6F6F6",
-                      positin: "relative",
+                      position: "relative",
                     },
                   ]}
                   onChangeText={(value) =>
