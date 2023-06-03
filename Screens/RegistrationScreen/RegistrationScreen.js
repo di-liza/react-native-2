@@ -43,7 +43,12 @@ function RegistrationScreen() {
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
-          <View style={stylesReg.scrollView}>
+          <View
+            style={{
+              ...stylesReg.scrollView,
+              paddingBottom: isShowKeyboard ? 45 : 323,
+            }}
+          >
             <Text style={stylesReg.text}>Реєстрація</Text>
             <View style={stylesReg.imagePlaceholder}>
               <Image
@@ -54,7 +59,7 @@ function RegistrationScreen() {
             <View style={stylesReg.inputsList}>
               <View>
                 <TextInput
-                  textAlign="center"
+                  textAlign="left"
                   cursorColor={"#FF6C00"}
                   onFocus={() => setIsLoginFocused(true)}
                   onBlur={() => setIsLoginFocused(false)}
@@ -75,7 +80,7 @@ function RegistrationScreen() {
               </View>
               <View>
                 <TextInput
-                  textAlign="center"
+                  textAlign="left"
                   cursorColor={"#FF6C00"}
                   onFocus={() => setIsEmailFocused(true)}
                   onBlur={() => setIsEmailFocused(false)}
@@ -96,7 +101,7 @@ function RegistrationScreen() {
               </View>
               <View>
                 <TextInput
-                  textAlign="center"
+                  textAlign="left"
                   cursorColor={"#FF6C00"}
                   onFocus={() => setIsPasswordFocused(true)}
                   onBlur={() => setIsPasswordFocused(false)}
@@ -107,6 +112,7 @@ function RegistrationScreen() {
                     {
                       borderColor: isPasswordFocused ? "#FF6C00" : "#E8E8E8",
                       backgroundColor: isPasswordFocused ? "#fff" : "#F6F6F6",
+                      positin: "relative",
                     },
                   ]}
                   onChangeText={(value) =>
@@ -114,9 +120,9 @@ function RegistrationScreen() {
                   }
                   value={state.password}
                 />
+                <Text style={stylesReg.showPassLink}>Показати</Text>
               </View>
             </View>
-            <Text style={stylesReg.showPassLink}>Показати</Text>
 
             <TouchableOpacity>
               {!isShowKeyboard && (

@@ -99,7 +99,7 @@ export const stylesReg = StyleSheet.create({
     lineHeight: 19,
     textAlign: "center",
     position: "absolute",
-    top: 308,
-    right: 32,
+    top: 16,
+    right: 16,
   },
 });
