@@ -6,19 +6,21 @@ export const stylesLog = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "center",
+    resizeMode: "cover",
+    justifyContent: "flex-end",
   },
   scrollView: {
     position: "relative",
     zIndex: 100,
-    // bottom: -150,
     width: "100%",
+    height: 489,
+    // bottom: 0,
 
     marginTop: 395,
     paddingTop: 32,
     paddingLeft: 16,
     paddingRight: 16,
-    paddingBottom: 111,
+    // paddingBottom: 120,
 
     backgroundColor: "#FFFFFF",
     borderTopLeftRadius: 25,

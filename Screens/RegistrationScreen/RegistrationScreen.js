@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
-  KeyboardAvoidingView,
   Button,
 } from "react-native";
 import { stylesReg } from "./RegistrationScreen.styled";
@@ -18,6 +17,8 @@ function RegistrationScreen() {
   const [isLoginFocused, setIsLoginFocused] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+
+  const [inputValue, setInputValue] = useState("");
 
   return (
     <View style={stylesReg.container}>
@@ -32,6 +33,7 @@ function RegistrationScreen() {
         <View style={stylesReg.inputsList}>
           <View>
             <TextInput
+              textAlign="center"
               cursorColor={"#FF6C00"}
               onFocus={() => setIsLoginFocused(true)}
               onBlur={() => setIsLoginFocused(false)}
@@ -44,10 +46,13 @@ function RegistrationScreen() {
                   backgroundColor: isLoginFocused ? "#fff" : "#F6F6F6",
                 },
               ]}
+              value={inputValue}
+              onChangeText={setInputValue}
             />
           </View>
           <View>
             <TextInput
+              textAlign="center"
               cursorColor={"#FF6C00"}
               onFocus={() => setIsEmailFocused(true)}
               onBlur={() => setIsEmailFocused(false)}
@@ -60,10 +65,13 @@ function RegistrationScreen() {
                   backgroundColor: isEmailFocused ? "#fff" : "#F6F6F6",
                 },
               ]}
+              value={inputValue}
+              onChangeText={setInputValue}
             />
           </View>
           <View>
             <TextInput
+              textAlign="center"
               cursorColor={"#FF6C00"}
               onFocus={() => setIsPasswordFocused(true)}
               onBlur={() => setIsPasswordFocused(false)}
@@ -76,6 +84,8 @@ function RegistrationScreen() {
                   backgroundColor: isPasswordFocused ? "#fff" : "#F6F6F6",
                 },
               ]}
+              value={inputValue}
+              onChangeText={setInputValue}
             />
           </View>
         </View>
