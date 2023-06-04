@@ -17,7 +17,7 @@ export const stylesReg = StyleSheet.create({
     paddingTop: 92,
     paddingLeft: 16,
     paddingRight: 16,
-    paddingBottom: 78,
+    // paddingBottom: 78,
 
     backgroundColor: "#FFFFFF",
     borderTopLeftRadius: 25,

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
   image: {
-    // flex: 1,
+    flex: 1,
     // justifyContent: "center",
     display: "flex",
     alignItems: "flex-end",

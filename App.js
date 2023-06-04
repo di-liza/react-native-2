@@ -1,13 +1,13 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
-import {
-  View,
-  ImageBackground,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { View, ImageBackground, Text } from "react-native";
 import { styles } from "./style";
+import { createStackNavigator } from "@react-navigation/stack";
 import { RegistrationScreen, LoginScreen } from "./Screens";
+
+const MainStack = createStackNavigator(); // вказує на групу навігаторів
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,15 +17,29 @@ export default function App() {
     return null;
   }
   return (
-    <View style={[styles.container, { fontFamily: "Roboto-Regular" }]}>
-      <ImageBackground
-        source={require("./images/photo-bg.jpg")}
-        imageStyle={styles.image}
-      >
-        <RegistrationScreen />
-        {/* <LoginScreen /> */}
-      </ImageBackground>
+    <NavigationContainer>
+      {/* <View style={[styles.container, { fontFamily: "Roboto-Regular" }]}> */}
+      {/* <ImageBackground
+          source={require("./images/photo-bg.jpg")}
+          imageStyle={styles.image}
+        > */}
+      {/* <Text>HELLO</Text> */}
+      <MainStack.Navigator initialRouteName="LoginScreen">
+        <MainStack.Screen
+          name="RegistrationScreen"
+          component={RegistrationScreen}
+        />
+        <MainStack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+          options={{ title: "Start screen" }}
+        />
+      </MainStack.Navigator>
+      {/* <RegistrationScreen /> */}
+      {/* <LoginScreen /> */}
+      {/* </ImageBackground> */}
       <StatusBar style="auto" />
-    </View>
+      {/* </View> */}
+    </NavigationContainer>
   );
 }
