@@ -1,5 +1,3 @@
-// Додати розмітку форми в компонент
-// Додати стилі до компонента
 import React from "react";
 import { useState } from "react";
 import {
@@ -14,10 +12,12 @@ import {
 } from "react-native";
 import { stylesLog } from "./LoginScreen.styled";
 import { styles } from "../../style";
+
 const initialState = {
   email: "",
   password: "",
 };
+
 function LoginScreen({ navigation }) {
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
@@ -33,6 +33,7 @@ function LoginScreen({ navigation }) {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
     console.log(state);
+    setstate(initialState);
   };
 
   return (

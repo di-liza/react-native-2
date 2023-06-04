@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { styles } from "../../style";
@@ -38,6 +40,7 @@ function RegistrationScreen({ navigation }) {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
     console.log(state);
+    setstate(initialState);
   };
 
   return (
