@@ -28,10 +28,12 @@ export default function App() {
         <MainStack.Screen
           name="RegistrationScreen"
           component={RegistrationScreen}
+          options={{ headerShown: false }}
         />
         <MainStack.Screen
           name="LoginScreen"
           component={LoginScreen}
+          options={{ headerShown: false }}
           // options={{ title: "Start screen" }}
         />
         <MainStack.Screen name="Home" component={Home} />

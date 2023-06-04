@@ -14,7 +14,7 @@ export const stylesLog = StyleSheet.create({
     zIndex: 100,
     width: "100%",
     height: 489,
-    bottom: 108,
+    // bottom: 108,
 
     marginTop: 395,
     paddingTop: 32,

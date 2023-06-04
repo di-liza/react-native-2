@@ -9,9 +9,8 @@ import {
   createNativeStackNavigator,
   Stack,
 } from "@react-navigation/native-stack";
-import { View, Text, TouchableOpacity, Image } from "react-native";
-
-import { styles } from "./Home.styled";
+import { TouchableOpacity, Image } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import {
   PostsScreen,
@@ -21,9 +20,9 @@ import {
   CreatePostsScreen,
 } from "../../Screens";
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
-import { SvgUri } from "react-native-svg";
+import { styles } from "./Home.styled";
+// import { Ionicons } from "@expo/vector-icons";
+// import { SvgUri } from "react-native-svg";
 
 const Tabs = createBottomTabNavigator();
 
