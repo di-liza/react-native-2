@@ -32,7 +32,7 @@ export default function App() {
         <MainStack.Screen
           name="LoginScreen"
           component={LoginScreen}
-          options={{ title: "Start screen" }}
+          // options={{ title: "Start screen" }}
         />
       </MainStack.Navigator>
       {/* <RegistrationScreen /> */}

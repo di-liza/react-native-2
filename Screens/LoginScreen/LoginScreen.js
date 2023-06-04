@@ -1,5 +1,6 @@
 // Додати розмітку форми в компонент
 // Додати стилі до компонента
+import React from "react";
 import { useState } from "react";
 import {
   Text,
@@ -17,7 +18,7 @@ const initialState = {
   email: "",
   password: "",
 };
-function LoginScreen() {
+function LoginScreen({ navigation }) {
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
@@ -38,7 +39,7 @@ function LoginScreen() {
     <TouchableWithoutFeedback onPress={keyboardHide}>
       <ImageBackground
         source={require("../../images/photo-bg.jpg")}
-        imageStyle={styles.image}
+        imageStyle={stylesLog.bgImage}
       >
         <View style={stylesLog.container}>
           <KeyboardAvoidingView
@@ -46,7 +47,7 @@ function LoginScreen() {
           >
             <View
               style={{
-                ...stylesLog.scrollView,
+                ...stylesLog.fromElement,
                 paddingBottom: isShowKeyboard ? 32 : 111,
               }}
             >
@@ -100,12 +101,18 @@ function LoginScreen() {
               <Text style={stylesLog.showPassLink}>Показати</Text>
               <TouchableOpacity>
                 {!isShowKeyboard && (
-                  <Text style={stylesLog.button} onPress={onLogin}>
+                  <Text style={stylesLog.enterBtn} onPress={onLogin}>
                     Увійти
                   </Text>
                 )}
               </TouchableOpacity>
-              <Text style={stylesLog.link}>Немає акаунту? Зареєструватися</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("RegistrationScreen")}
+              >
+                <Text style={stylesLog.link}>
+                  Немає акаунту? Зареєструватися
+                </Text>
+              </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
         </View>

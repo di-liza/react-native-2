@@ -4,23 +4,23 @@ export const stylesLog = StyleSheet.create({
   container: {
     flex: 0,
   },
-  image: {
+  bgImage: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "flex-end",
   },
-  scrollView: {
+  fromElement: {
     position: "relative",
     zIndex: 100,
     width: "100%",
     height: 489,
-    // bottom: 0,
+    bottom: 108,
 
     marginTop: 395,
     paddingTop: 32,
     paddingLeft: 16,
     paddingRight: 16,
-    // paddingBottom: 120,
+    paddingBottom: 111,
 
     backgroundColor: "#FFFFFF",
     borderTopLeftRadius: 25,
@@ -52,7 +52,7 @@ export const stylesLog = StyleSheet.create({
     marginBottom: 33,
     lineHeight: 35,
   },
-  button: {
+  enterBtn: {
     alignSelf: "center",
     width: 343,
 
