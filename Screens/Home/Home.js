@@ -1,21 +1,29 @@
 import "react-native-gesture-handler";
 import React, { useEffect } from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  getFocusedRouteNameFromRoute,
+} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
   createNativeStackNavigator,
   Stack,
 } from "@react-navigation/native-stack";
 import { View, Text, TouchableOpacity, Image } from "react-native";
+
 import { styles } from "./Home.styled";
-import PostsScreen from "../PostsScreen/PostsScreen";
-import MapScreen from "../MapScreen/MapScreen";
-import CommentsScreen from "../CommentsScreen/CommentsScreen";
-import ProfileScreen from "../ProfileScreen/ProfileScreen";
-import CreatePostsScreen from "../CreatePostsScreen/CreatePostsScreen";
+
+import {
+  PostsScreen,
+  MapScreen,
+  CommentsScreen,
+  ProfileScreen,
+  CreatePostsScreen,
+} from "../../Screens";
+
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import { SvgUri } from "react-native-svg";
 
 const Tabs = createBottomTabNavigator();
 
@@ -51,9 +59,7 @@ function Home({ navigation, route }) {
     });
   }, [navigation, route]);
   return (
-    <Tabs.Navigator
-      style={{ display: "block", paddingTop: 9, paddingBottom: 22 }}
-    >
+    <Tabs.Navigator>
       <Tabs.Screen
         name="PostsScreen"
         component={PostsScreen}
