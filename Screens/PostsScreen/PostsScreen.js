@@ -2,11 +2,10 @@ import React from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 // import { Ionicons } from "@expo/vector-icons";
 
-export default function CreatePostsScreen({ navigation }) {
+export default function PostsScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Створити публікацію</Text>
-      {/* <View style={styles.wrapper}>
+      <View style={styles.wrapper}>
         <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
           <Image
             style={styles.img}
@@ -17,7 +16,7 @@ export default function CreatePostsScreen({ navigation }) {
           <Text style={styles.name}>Ім'я</Text>
           <Text style={styles.email}>Email</Text>
         </View>
-      </View> */}
+      </View>
     </View>
   );
 }
