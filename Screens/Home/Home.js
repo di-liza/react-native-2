@@ -11,6 +11,7 @@ import { styles } from "./Home.styled";
 import PostsScreen from "../PostsScreen/PostsScreen";
 import MapScreen from "../MapScreen/MapScreen";
 import CommentsScreen from "../CommentsScreen/CommentsScreen";
+import ProfileScreen from "../ProfileScreen/ProfileScreen";
 import CreatePostsScreen from "../CreatePostsScreen/CreatePostsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -130,6 +131,20 @@ function Home({ navigation }) {
             <Image
               source={require("../../icons/new.png")}
               style={{ width: 70, height: 40 }}
+            />
+          ),
+          tabBarLabel: "",
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: () => (
+            <Image
+              source={require("../../icons/user.png")}
+              style={{ width: 24, height: 24 }}
             />
           ),
           tabBarLabel: "",
