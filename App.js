@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { View, ImageBackground, Text } from "react-native";
 import { styles } from "./style";
 import { createStackNavigator } from "@react-navigation/stack";
-import { RegistrationScreen, LoginScreen } from "./Screens";
+import { RegistrationScreen, LoginScreen, Home } from "./Screens";
 
 const MainStack = createStackNavigator(); // вказує на групу навігаторів
 
@@ -34,6 +34,7 @@ export default function App() {
           component={LoginScreen}
           // options={{ title: "Start screen" }}
         />
+        <MainStack.Screen name="Home" component={Home} />
       </MainStack.Navigator>
       {/* <RegistrationScreen /> */}
       {/* <LoginScreen /> */}

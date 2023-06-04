@@ -23,7 +23,7 @@ function LoginScreen({ navigation }) {
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
-  const [state, setstate] = useState(initialState);
+  const [state, setState] = useState(initialState);
 
   const keyboardHide = () => {
     setIsShowKeyboard(false);
@@ -33,7 +33,8 @@ function LoginScreen({ navigation }) {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
     console.log(state);
-    setstate(initialState);
+    setState(initialState);
+    navigation.navigate("Home");
   };
 
   return (
@@ -69,7 +70,7 @@ function LoginScreen({ navigation }) {
                       },
                     ]}
                     onChangeText={(value) =>
-                      setstate((prevState) => ({ ...prevState, email: value }))
+                      setState((prevState) => ({ ...prevState, email: value }))
                     }
                     value={state.email}
                   />
@@ -90,7 +91,7 @@ function LoginScreen({ navigation }) {
                       },
                     ]}
                     onChangeText={(value) =>
-                      setstate((prevState) => ({
+                      setState((prevState) => ({
                         ...prevState,
                         password: value,
                       }))

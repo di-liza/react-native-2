@@ -40,7 +40,8 @@ function RegistrationScreen({ navigation }) {
     setIsShowKeyboard(false);
     Keyboard.dismiss();
     console.log(state);
-    setstate(initialState);
+    setState(initialState);
+    navigation.navigate("Home");
   };
 
   return (
