@@ -38,12 +38,12 @@ const styles = StyleSheet.create({
     marginTop: 32,
   },
   name: {
-    fontFamily: "Roboto-Bold",
+    // fontFamily: "Roboto-Bold",
     fontSize: 13,
     lineHeight: 15,
   },
   email: {
-    fontFamily: "Roboto-Regular",
+    // fontFamily: "Roboto-Regular",
     fontSize: 11,
     lineHeight: 13,
     color: "rgba(33, 33, 33, 0.8)",

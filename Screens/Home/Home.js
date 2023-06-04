@@ -15,18 +15,23 @@ import ProfileScreen from "../ProfileScreen/ProfileScreen";
 import CreatePostsScreen from "../CreatePostsScreen/CreatePostsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
-const NestedScreen = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
 
-const CustomBackIcon = ({ onPress }) => (
-  <Ionicons name="arrow-back" size={24} onPress={onPress} />
-);
-
-function Home({ navigation }) {
+function Home({ navigation, route }) {
   useEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+
+    let headerTitle = "";
+
+    if (routeName === "PostsScreen") {
+      headerTitle = "Публікації";
+    } else if (routeName === "CreatePostsScreen") {
+      headerTitle = "Створити публікацію";
+    }
     navigation.setOptions({
-      headerTitle: "Публікації",
+      headerTitle,
       headerTitleAlign: "center",
       headerTitleStyle: {
         fontSize: 17,
@@ -42,72 +47,11 @@ function Home({ navigation }) {
         </TouchableOpacity>
       ),
     });
-  }, [navigation]);
-  //   return (
-  //     <NestedScreen.Navigator
-  //       screenOptions={{
-  //         headerTitle: "Публікації",
-  //         tabBarStyle: {
-  //           height: 83,
-  //           paddingHorizontal: 81,
-  //         },
-  //         headerTitleAlign: "center",
-  //         headerTitleStyle: {
-  //           fontSize: 17,
-  //           lineHeight: 22,
-  //           color: "#212121",
-  //         },
-  //       }}
-  //     >
-  //       <NestedScreen.Screen
-  //         options={{
-  //           headerTitle: "Публікації",
-  //           headerRight: () => (
-  //             <Ionicons
-  //               name="log-in-outline"
-  //               size={30}
-  //               color="#BDBDBD"
-  //               style={{ marginRight: 10 }}
-  //             />
-  //           ),
-  //         }}
-  //         name="PostsScreen"
-  //         component={PostsScreen}
-  //       />
-  //       <NestedScreen.Screen
-  //         options={{
-  //           headerTitle: "Коментарі",
-  //         }}
-  //         name="Comments"
-  //         component={CommentsScreen}
-  //       />
-  //       <NestedScreen.Screen
-  //         options={{
-  //           headerTitle: "Мапа",
-  //         }}
-  //         name="MapScreen"
-  //         component={MapScreen}
-  //       />
-  //     </NestedScreen.Navigator>
-  //   );
+  }, [navigation, route]);
+
   return (
     <Tabs.Navigator
-      //   screenOptions={({ route }) => ({
-      //     tabBarIcon: ({ focused, color, size }) => {
-      //       let iconComponent;
-
-      //       if (route.name === "PostsScreen") {
-      //         iconComponent = <CustomIcon />;
-      //       } else if (route.name === "Comments") {
-      //         iconComponent = <createPostIcon />;
-      //       }
-      //       return <iconComponent />;
-      //     },
-      //   })}
-      tabBarOptions={{
-        activeTintColor: "tomato",
-        inactiveTintColor: "gray",
-      }}
+      style={{ display: "block", paddingTop: 9, paddingBottom: 22 }}
     >
       <Tabs.Screen
         name="PostsScreen"
@@ -156,7 +100,3 @@ function Home({ navigation }) {
 }
 
 export default Home;
-
-{
-  /* <Image source={require("../../icons/log-out.png")} />; */
-}
