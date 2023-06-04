@@ -30,6 +30,7 @@ function Home({ navigation, route }) {
     } else if (routeName === "CreatePostsScreen") {
       headerTitle = "Створити публікацію";
     }
+
     navigation.setOptions({
       headerTitle,
       headerTitleAlign: "center",
@@ -38,17 +39,17 @@ function Home({ navigation, route }) {
         lineHeight: 22,
         color: "#212121",
       },
-      headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-          <Image
-            source={require("../../icons/log-out.png")}
-            style={{ width: 24, height: 24, marginRight: 10 }}
-          />
-        </TouchableOpacity>
-      ),
+      headerRight: () =>
+        routeName === "PostsScreen" ? (
+          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+            <Image
+              source={require("../../icons/log-out.png")}
+              style={{ width: 24, height: 24, marginRight: 10 }}
+            />
+          </TouchableOpacity>
+        ) : null,
     });
   }, [navigation, route]);
-
   return (
     <Tabs.Navigator
       style={{ display: "block", paddingTop: 9, paddingBottom: 22 }}
