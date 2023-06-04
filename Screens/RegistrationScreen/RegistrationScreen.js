@@ -21,7 +21,8 @@ const initialState = {
   password: "",
 };
 const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
-function RegistrationScreen() {
+
+function RegistrationScreen({ navigation }) {
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
   const [isLoginFocused, setIsLoginFocused] = useState(false);
   const [isEmailFocused, setIsEmailFocused] = useState(false);
@@ -153,7 +154,11 @@ function RegistrationScreen() {
                   </Text>
                 )}
               </TouchableOpacity>
-              <Text style={stylesReg.link}>Вже є акаунт? Увійти</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("LoginScreen")}
+              >
+                <Text style={stylesReg.link}>Вже є акаунт? Увійти</Text>
+              </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
         </View>
