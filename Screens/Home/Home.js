@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React, { useEffect } from "react";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { PostsScreen, ProfileScreen, CreatePostsScreen } from "../../Screens";
@@ -15,7 +15,6 @@ const Tabs = createBottomTabNavigator();
 function Home({ navigation, route }) {
   useEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-
     let headerTitle = "";
 
     if (routeName === "PostsScreen") {
@@ -32,14 +31,21 @@ function Home({ navigation, route }) {
         lineHeight: 22,
         color: "#212121",
       },
+
+      headerLeft: routeName === "PostsScreen" ? null : undefined,
       headerRight: () =>
         routeName === "PostsScreen" ? (
-          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+          <TouchableOpacity
+            onPress={() => {
+              console.log("press");
+              navigation.navigate("LoginScreen");
+            }}
+          >
             <Ionicons
               name="log-out-outline"
-              size={24}
+              size={30}
               color="#BDBDBD"
-              onPress={() => navigation.navigate("PostsScreen")}
+              onPress={() => navigation.goBack()}
               style={{ marginRight: 16 }}
             />
           </TouchableOpacity>
