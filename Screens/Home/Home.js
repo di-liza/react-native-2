@@ -1,28 +1,14 @@
 import "react-native-gesture-handler";
 import React, { useEffect } from "react";
-import {
-  NavigationContainer,
-  getFocusedRouteNameFromRoute,
-} from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import {
-  createNativeStackNavigator,
-  Stack,
-} from "@react-navigation/native-stack";
-import { TouchableOpacity, Image } from "react-native";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+
+import { TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import {
-  PostsScreen,
-  MapScreen,
-  CommentsScreen,
-  ProfileScreen,
-  CreatePostsScreen,
-} from "../../Screens";
+import { PostsScreen, ProfileScreen, CreatePostsScreen } from "../../Screens";
 
 import { styles } from "./Home.styled";
 import { Ionicons } from "@expo/vector-icons";
-// import { SvgUri } from "react-native-svg";
 
 const Tabs = createBottomTabNavigator();
 
@@ -66,13 +52,21 @@ function Home({ navigation, route }) {
         name="PostsScreen"
         component={PostsScreen}
         options={{
-          tabBarIcon: ({ focused, color }) => (
+          tabBarIcon: ({ focused, color, size }) => (
             <TouchableOpacity>
               <Ionicons
                 name="grid-outline"
                 size={24}
-                color="#BDBDBD"
+                color={focused ? "#FFFFFF" : "#BDBDBD"}
                 onPress={() => navigation.navigate("PostsScreen")}
+                style={{
+                  backgroundColor: focused ? "#FF6C00" : "transparent",
+                  borderRadius: focused ? 20 : 0,
+                  width: focused ? 70 : 24,
+                  height: focused ? 40 : 24,
+                  paddingTop: focused ? 7 : 0,
+                  textAlign: "center",
+                }}
               />
             </TouchableOpacity>
           ),
@@ -80,6 +74,7 @@ function Home({ navigation, route }) {
           headerShown: false,
         }}
       />
+      {/* background: #FF6C00; border-radius: 20px; Width 70px Height 40px */}
       <Tabs.Screen
         name="CreatePostsScreen"
         component={CreatePostsScreen}
@@ -89,24 +84,22 @@ function Home({ navigation, route }) {
               <Ionicons
                 name="add-outline"
                 size={24}
-                color="#BDBDBD"
-                onPress={() => navigation.navigate("PostsScreen")}
+                color={focused ? "#FFFFFF" : "#BDBDBD"}
+                onPress={() => navigation.navigate("CreatePostsScreen")}
+                style={{
+                  backgroundColor: focused ? "#FF6C00" : "transparent",
+                  borderRadius: focused ? 20 : 0,
+                  width: focused ? 70 : 24,
+                  height: focused ? 40 : 24,
+                  paddingTop: focused ? 7 : 0,
+                  textAlign: "center",
+                }}
               />
             </TouchableOpacity>
           ),
           tabBarLabel: "",
           headerShown: false,
         }}
-        // options={{
-        //   tabBarIcon: () => (
-        //     <Image
-        //       source={require("../../icons/new.png")}
-        //       style={{ width: 70, height: 40 }}
-        //     />
-        //   ),
-        //   tabBarLabel: "",
-        //   headerShown: false,
-        // }}
       />
       <Tabs.Screen
         name="ProfileScreen"
@@ -116,25 +109,23 @@ function Home({ navigation, route }) {
             <TouchableOpacity>
               <Ionicons
                 name="person-outline"
-                color="#BDBDBD"
-                onPress={() => navigation.navigate("PostsScreen")}
+                color={focused ? "#FFFFFF" : "#BDBDBD"}
+                onPress={() => navigation.navigate("ProfileScreen")}
                 size={24}
+                style={{
+                  backgroundColor: focused ? "#FF6C00" : "transparent",
+                  borderRadius: focused ? 20 : 0,
+                  width: focused ? 70 : 24,
+                  height: focused ? 40 : 24,
+                  paddingTop: focused ? 7 : 0,
+                  textAlign: "center",
+                }}
               />
             </TouchableOpacity>
           ),
           tabBarLabel: "",
           headerShown: false,
         }}
-        // options={{
-        //   tabBarIcon: () => (
-        //     <Image
-        //       source={require("../../icons/user.png")}
-        //       style={{ width: 24, height: 24 }}
-        //     />
-        //   ),
-        //   tabBarLabel: "",
-        //   headerShown: false,
-        // }}
       />
     </Tabs.Navigator>
   );
