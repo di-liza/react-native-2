@@ -31,7 +31,6 @@ function Home({ navigation, route }) {
         color: "#212121",
       },
 
-      // headerLeft: routeName === "PostsScreen" ? null : navigation.goBack(),
       headerRight: () =>
         routeName === "PostsScreen" ? (
           <TouchableOpacity
