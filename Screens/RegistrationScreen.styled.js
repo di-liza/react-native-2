@@ -1,26 +1,23 @@
 import { StyleSheet } from "react-native";
 
-export const stylesLog = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 0,
   },
-  bgImage: {
+  image: {
     flex: 1,
-    resizeMode: "cover",
-    justifyContent: "flex-end",
+    justifyContent: "center",
   },
-  fromElement: {
+  scrollView: {
     position: "relative",
-    zIndex: 100,
+    zIndex: 1,
     width: "100%",
-    height: 489,
-    // bottom: 108,
+    marginTop: 263,
 
-    marginTop: 395,
-    paddingTop: 32,
+    paddingTop: 92,
     paddingLeft: 16,
     paddingRight: 16,
-    paddingBottom: 111,
+    // paddingBottom: 78,
 
     backgroundColor: "#FFFFFF",
     borderTopLeftRadius: 25,
@@ -34,14 +31,14 @@ export const stylesLog = StyleSheet.create({
     backgroundColor: "#F6F6F6",
     position: "absolute",
     borderRadius: 16,
-    top: "-15%",
-    left: "35%",
+    top: -60,
+    left: "38%",
     zIndex: 2,
   },
   addIcon: {
     position: "absolute",
-    top: 21,
-    right: 122,
+    top: 81,
+    left: 107,
     zIndex: 3,
   },
   text: {
@@ -52,14 +49,13 @@ export const stylesLog = StyleSheet.create({
     marginBottom: 33,
     lineHeight: 35,
   },
-  enterBtn: {
+  button: {
     alignSelf: "center",
     width: 343,
 
     paddingTop: 16,
     paddingBottom: 16,
-
-    marginTop: 43,
+    marginTop: 32,
     marginBottom: 16,
 
     borderRadius: 100,
@@ -103,7 +99,7 @@ export const stylesLog = StyleSheet.create({
     lineHeight: 19,
     textAlign: "center",
     position: "absolute",
-    top: 182,
-    right: 32,
+    top: 16,
+    right: 16,
   },
 });

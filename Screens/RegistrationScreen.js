@@ -2,7 +2,6 @@ import React from "react";
 
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { styles } from "../../style";
 import {
   Text,
   View,
@@ -14,15 +13,14 @@ import {
   Keyboard,
   ImageBackground,
   ScrollView,
+  StyleSheet,
 } from "react-native";
-import { stylesReg } from "./RegistrationScreen.styled";
 
 const initialState = {
   login: "",
   email: "",
   password: "",
 };
-const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
 
 function RegistrationScreen({ navigation }) {
   const [isShowKeyboard, setIsShowKeyboard] = useState(false);
@@ -42,34 +40,35 @@ function RegistrationScreen({ navigation }) {
     console.log(state);
     setState(initialState);
     navigation.navigate("Home");
+    console.log("register");
   };
 
   return (
     <TouchableWithoutFeedback onPress={keyboardHide}>
       <ImageBackground
-        source={require("../../images/photo-bg.jpg")}
+        source={require("../images/photo-bg.jpg")}
         imageStyle={styles.image}
       >
-        <View style={stylesReg.container}>
+        <View style={styles.container}>
           <KeyboardAvoidingView
             enabled
             behavior={Platform.OS === "ios" ? "padding" : "height"}
           >
             <View
               style={{
-                ...stylesReg.scrollView,
+                ...styles.scrollView,
                 // height: isShowKeyboard ? 374 : 549,
               }}
             >
-              <Text style={stylesReg.text}>Реєстрація</Text>
-              <View style={stylesReg.imagePlaceholder}>
+              <Text style={styles.text}>Реєстрація</Text>
+              <View style={styles.imagePlaceholder}>
                 <Image
-                  style={stylesReg.addIcon}
-                  source={require("../../images/add.png")}
+                  style={styles.addIcon}
+                  source={require("../images/add.png")}
                 />
               </View>
               <ScrollView>
-                <View style={stylesReg.inputsList}>
+                <View style={styles.inputsList}>
                   <View>
                     <TextInput
                       textAlign="left"
@@ -79,7 +78,7 @@ function RegistrationScreen({ navigation }) {
                       placeholder={"Логін"}
                       placeholderTextColor={"#BDBDBD"}
                       style={[
-                        stylesReg.input,
+                        styles.input,
                         {
                           borderColor: isLoginFocused ? "#FF6C00" : "#E8E8E8",
                           backgroundColor: isLoginFocused ? "#fff" : "#F6F6F6",
@@ -103,7 +102,7 @@ function RegistrationScreen({ navigation }) {
                       placeholder={"Адреса електронної пошти"}
                       placeholderTextColor={"#BDBDBD"}
                       style={[
-                        stylesReg.input,
+                        styles.input,
                         {
                           borderColor: isEmailFocused ? "#FF6C00" : "#E8E8E8",
                           backgroundColor: isEmailFocused ? "#fff" : "#F6F6F6",
@@ -127,7 +126,7 @@ function RegistrationScreen({ navigation }) {
                       placeholder={"Пароль"}
                       placeholderTextColor={"#BDBDBD"}
                       style={[
-                        stylesReg.input,
+                        styles.input,
                         {
                           borderColor: isPasswordFocused
                             ? "#FF6C00"
@@ -146,14 +145,14 @@ function RegistrationScreen({ navigation }) {
                       }
                       value={state.password}
                     />
-                    <Text style={stylesReg.showPassLink}>Показати</Text>
+                    <Text style={styles.showPassLink}>Показати</Text>
                   </View>
                 </View>
               </ScrollView>
 
               <TouchableOpacity>
                 {!isShowKeyboard && (
-                  <Text style={stylesReg.button} onPress={onRegister}>
+                  <Text style={styles.button} onPress={onRegister}>
                     Зареєстуватися
                   </Text>
                 )}
@@ -161,7 +160,7 @@ function RegistrationScreen({ navigation }) {
               <TouchableOpacity
                 onPress={() => navigation.navigate("LoginScreen")}
               >
-                <Text style={stylesReg.link}>Вже є акаунт? Увійти</Text>
+                <Text style={styles.link}>Вже є акаунт? Увійти</Text>
               </TouchableOpacity>
             </View>
           </KeyboardAvoidingView>
@@ -172,3 +171,107 @@ function RegistrationScreen({ navigation }) {
 }
 
 export default RegistrationScreen;
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 0,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  scrollView: {
+    position: "relative",
+    zIndex: 1,
+    width: "100%",
+    marginTop: 263,
+
+    paddingTop: 92,
+    paddingLeft: 16,
+    paddingRight: 16,
+    // paddingBottom: 78,
+
+    backgroundColor: "#FFFFFF",
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+
+    textAlign: "center",
+  },
+  imagePlaceholder: {
+    height: 120,
+    width: 120,
+    backgroundColor: "#F6F6F6",
+    position: "absolute",
+    borderRadius: 16,
+    top: -60,
+    left: "38%",
+    zIndex: 2,
+  },
+  addIcon: {
+    position: "absolute",
+    top: 81,
+    left: 107,
+    zIndex: 3,
+  },
+  text: {
+    color: "#212121",
+    fontWeight: "bold",
+    fontSize: 30,
+    textAlign: "center",
+    marginBottom: 33,
+    lineHeight: 35,
+  },
+  button: {
+    alignSelf: "center",
+    width: 343,
+
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: 32,
+    marginBottom: 16,
+
+    borderRadius: 100,
+    backgroundColor: "#FF6C00",
+    borderRadius: 100,
+
+    textAlign: "center",
+    color: "#fff",
+    fontSize: 16,
+    lineHeight: 19,
+  },
+  input: {
+    height: 50,
+    width: "100%",
+
+    paddingTop: 16,
+    paddingBottom: 15,
+    paddingLeft: 16,
+    marginBottom: 16,
+
+    backgroundColor: "#F6F6F6",
+    color: "#212121",
+    borderColor: "#E8E8E8",
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 8,
+
+    fontSize: 16,
+    lineHeight: 19,
+    // position: "relative",
+  },
+  link: {
+    color: "#1B4371",
+    fontSize: 16,
+    lineHeight: 19,
+    textAlign: "center",
+  },
+  showPassLink: {
+    color: "#1B4371",
+    fontSize: 16,
+    lineHeight: 19,
+    textAlign: "center",
+    position: "absolute",
+    top: 16,
+    right: 16,
+  },
+});

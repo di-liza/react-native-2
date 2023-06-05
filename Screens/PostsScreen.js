@@ -5,10 +5,13 @@ export default function PostsScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
+        {/* <View style={styles.headerTitle}>
+          <Text>Публікації</Text>
+        </View> */}
         <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
           <Image
             style={styles.img}
-            source={require("../../images/Rectangle.jpg")}
+            source={require("../images/Rectangle.jpg")}
           ></Image>
         </TouchableOpacity>
         <View style={styles.nameEmailWrapper}>
@@ -24,6 +27,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
     flex: 1,
+    textAlign: "center",
   },
   wrapper: {
     flexDirection: "row",
@@ -34,6 +38,10 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 16,
     marginTop: 32,
+  },
+  headerTitle: {
+    textAlign: "center",
+    // marginLeft: 30,
   },
   name: {
     // fontFamily: "Roboto-Bold",

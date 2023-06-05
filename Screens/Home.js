@@ -2,13 +2,12 @@ import "react-native-gesture-handler";
 import React, { useEffect } from "react";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { PostsScreen, ProfileScreen, CreatePostsScreen } from "../../Screens";
-
-import { styles } from "./Home.styled";
+import { PostsScreen, ProfileScreen, CreatePostsScreen } from "../Screens";
 import { Ionicons } from "@expo/vector-icons";
+import { HeaderBackButton, HeaderTitle } from "@react-navigation/stack";
 
 const Tabs = createBottomTabNavigator();
 
@@ -32,7 +31,7 @@ function Home({ navigation, route }) {
         color: "#212121",
       },
 
-      headerLeft: routeName === "PostsScreen" ? null : undefined,
+      // headerLeft: routeName === "PostsScreen" ? null : navigation.goBack(),
       headerRight: () =>
         routeName === "PostsScreen" ? (
           <TouchableOpacity
@@ -53,12 +52,21 @@ function Home({ navigation, route }) {
     });
   }, [navigation, route]);
   return (
-    <Tabs.Navigator>
+    <Tabs.Navigator
+      screenOptions={() => ({
+        tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
+        style: {
+          borderRadius: 15,
+          height: 90,
+        },
+      })}
+    >
       <Tabs.Screen
         name="PostsScreen"
         component={PostsScreen}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused }) => (
             <TouchableOpacity>
               <Ionicons
                 name="grid-outline"
@@ -80,12 +88,11 @@ function Home({ navigation, route }) {
           headerShown: false,
         }}
       />
-      {/* background: #FF6C00; border-radius: 20px; Width 70px Height 40px */}
       <Tabs.Screen
         name="CreatePostsScreen"
         component={CreatePostsScreen}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused }) => (
             <TouchableOpacity>
               <Ionicons
                 name="add-outline"
@@ -111,7 +118,7 @@ function Home({ navigation, route }) {
         name="ProfileScreen"
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
+          tabBarIcon: ({ focused }) => (
             <TouchableOpacity>
               <Ionicons
                 name="person-outline"

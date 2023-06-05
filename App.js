@@ -2,12 +2,11 @@ import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
-import { View, ImageBackground, Text } from "react-native";
-import { styles } from "./style";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RegistrationScreen, LoginScreen, Home } from "./Screens";
+// import Home from "./Screens/Home";
 
-const MainStack = createStackNavigator(); // вказує на групу навігаторів
+const MainStack = createStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({

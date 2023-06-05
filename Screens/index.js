@@ -1,8 +1,8 @@
-export { default as RegistrationScreen } from "./RegistrationScreen/RegistrationScreen";
-export { default as LoginScreen } from "./LoginScreen/LoginScreen";
-export { default as PostsScreen } from "./PostsScreen/PostsScreen";
-export { default as MapScreen } from "./MapScreen/MapScreen";
-export { default as ProfileScreen } from "./ProfileScreen/ProfileScreen";
-export { default as CreatePostsScreen } from "./CreatePostsScreen/CreatePostsScreen";
-export { default as CommentsScreen } from "./CommentsScreen/CommentsScreen";
-export { default as Home } from "./Home/Home";
+export { default as RegistrationScreen } from "./RegistrationScreen";
+export { default as LoginScreen } from "./LoginScreen";
+export { default as PostsScreen } from "./PostsScreen";
+export { default as MapScreen } from "./MapScreen";
+export { default as ProfileScreen } from "./ProfileScreen";
+export { default as CreatePostsScreen } from "./CreatePostsScreen";
+export { default as CommentsScreen } from "./CommentsScreen";
+export { default as Home } from "./Home";
