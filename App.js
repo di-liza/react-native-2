@@ -18,12 +18,6 @@ export default function App() {
   }
   return (
     <NavigationContainer>
-      {/* <View style={[styles.container, { fontFamily: "Roboto-Regular" }]}> */}
-      {/* <ImageBackground
-          source={require("./images/photo-bg.jpg")}
-          imageStyle={styles.image}
-        > */}
-      {/* <Text>HELLO</Text> */}
       <MainStack.Navigator initialRouteName="LoginScreen">
         <MainStack.Screen
           name="RegistrationScreen"
@@ -34,15 +28,10 @@ export default function App() {
           name="LoginScreen"
           component={LoginScreen}
           options={{ headerShown: false }}
-          // options={{ title: "Start screen" }}
         />
         <MainStack.Screen name="Home" component={Home} />
       </MainStack.Navigator>
-      {/* <RegistrationScreen /> */}
-      {/* <LoginScreen /> */}
-      {/* </ImageBackground> */}
       <StatusBar style="auto" />
-      {/* </View> */}
     </NavigationContainer>
   );
 }

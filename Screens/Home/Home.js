@@ -21,7 +21,7 @@ import {
 } from "../../Screens";
 
 import { styles } from "./Home.styled";
-// import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 // import { SvgUri } from "react-native-svg";
 
 const Tabs = createBottomTabNavigator();
@@ -49,9 +49,12 @@ function Home({ navigation, route }) {
       headerRight: () =>
         routeName === "PostsScreen" ? (
           <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
-            <Image
-              source={require("../../icons/log-out.png")}
-              style={{ width: 24, height: 24, marginRight: 10 }}
+            <Ionicons
+              name="log-out-outline"
+              size={24}
+              color="#BDBDBD"
+              onPress={() => navigation.navigate("PostsScreen")}
+              style={{ marginRight: 16 }}
             />
           </TouchableOpacity>
         ) : null,
@@ -63,11 +66,15 @@ function Home({ navigation, route }) {
         name="PostsScreen"
         component={PostsScreen}
         options={{
-          tabBarIcon: () => (
-            <Image
-              source={require("../../icons/grid.jpg")}
-              style={{ width: 24, height: 24 }}
-            />
+          tabBarIcon: ({ focused, color }) => (
+            <TouchableOpacity>
+              <Ionicons
+                name="grid-outline"
+                size={24}
+                color="#BDBDBD"
+                onPress={() => navigation.navigate("PostsScreen")}
+              />
+            </TouchableOpacity>
           ),
           tabBarLabel: "",
           headerShown: false,
@@ -77,29 +84,57 @@ function Home({ navigation, route }) {
         name="CreatePostsScreen"
         component={CreatePostsScreen}
         options={{
-          tabBarIcon: () => (
-            <Image
-              source={require("../../icons/new.png")}
-              style={{ width: 70, height: 40 }}
-            />
+          tabBarIcon: ({ focused, color, size }) => (
+            <TouchableOpacity>
+              <Ionicons
+                name="add-outline"
+                size={24}
+                color="#BDBDBD"
+                onPress={() => navigation.navigate("PostsScreen")}
+              />
+            </TouchableOpacity>
           ),
           tabBarLabel: "",
           headerShown: false,
         }}
+        // options={{
+        //   tabBarIcon: () => (
+        //     <Image
+        //       source={require("../../icons/new.png")}
+        //       style={{ width: 70, height: 40 }}
+        //     />
+        //   ),
+        //   tabBarLabel: "",
+        //   headerShown: false,
+        // }}
       />
       <Tabs.Screen
         name="ProfileScreen"
         component={ProfileScreen}
         options={{
-          tabBarIcon: () => (
-            <Image
-              source={require("../../icons/user.png")}
-              style={{ width: 24, height: 24 }}
-            />
+          tabBarIcon: ({ focused, color, size }) => (
+            <TouchableOpacity>
+              <Ionicons
+                name="person-outline"
+                color="#BDBDBD"
+                onPress={() => navigation.navigate("PostsScreen")}
+                size={24}
+              />
+            </TouchableOpacity>
           ),
           tabBarLabel: "",
           headerShown: false,
         }}
+        // options={{
+        //   tabBarIcon: () => (
+        //     <Image
+        //       source={require("../../icons/user.png")}
+        //       style={{ width: 24, height: 24 }}
+        //     />
+        //   ),
+        //   tabBarLabel: "",
+        //   headerShown: false,
+        // }}
       />
     </Tabs.Navigator>
   );
