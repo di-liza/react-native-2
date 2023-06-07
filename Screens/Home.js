@@ -7,7 +7,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { PostsScreen, ProfileScreen, CreatePostsScreen } from "../Screens";
 import { Ionicons } from "@expo/vector-icons";
-import { HeaderBackButton, HeaderTitle } from "@react-navigation/stack";
 
 const Tabs = createBottomTabNavigator();
 
@@ -30,7 +29,7 @@ function Home({ navigation, route }) {
         lineHeight: 22,
         color: "#212121",
       },
-
+      // headerLeft: null,
       headerRight: () =>
         routeName === "PostsScreen" ? (
           <TouchableOpacity
